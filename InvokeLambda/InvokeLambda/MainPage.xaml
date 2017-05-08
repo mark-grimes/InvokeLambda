@@ -4,8 +4,77 @@
              xmlns:local="clr-namespace:InvokeLambda"
              x:Class="InvokeLambda.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <StackLayout VerticalOptions="Center">
+
+        <Label Text="Invoke AWS Lambda function"
+               VerticalOptions="Start"
+               HorizontalOptions="Center" />
+
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+            <Label Text="Identity pool"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start" />
+
+            <Entry x:Name="input_identityPool"
+                   Placeholder = "Identity Pool"
+                   Text = "us-east-1:00000000-0000-0000-0000-000000000000"
+                   VerticalOptions="Center"
+                   HorizontalOptions="FillAndExpand"/>
+
+            <Button Text="Use"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    Clicked="onAcquireIdentity"/>
+        </StackLayout>
+
+        <Entry x:Name="input_functionName"
+               Placeholder = "Function name"
+               Text = "ShiftRota-version"
+               VerticalOptions="Start"
+               HorizontalOptions="Fill"/>
+
+        <Editor x:Name="input_payload"
+                HeightRequest="80"
+                VerticalOptions="Start"
+                HorizontalOptions="Fill"/>
+
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Fill">
+            <Picker x:Name="input_region"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start">
+                <Picker.Items>
+                    <x:String>ap-northeast-1</x:String>
+                    <x:String>ap-northeast-2</x:String>
+                    <x:String>ap-south-1</x:String>
+                    <x:String>ap-southeast-1</x:String>
+                    <x:String>ap-southeast-2</x:String>
+                    <x:String>eu-central-1</x:String>
+                    <x:String>eu-west-1</x:String>
+                    <x:String>eu-west-2</x:String>
+                    <x:String>us-east-1</x:String>
+                    <x:String>us-east-2</x:String>
+                    <x:String>us-west-1</x:String>
+                    <x:String>us-west-2</x:String>
+                </Picker.Items>
+                <Picker.SelectedIndex>6</Picker.SelectedIndex>
+            </Picker>
+
+            <Button Text="Send"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    Clicked="onButtonClicked"/>
+
+            <Label x:Name="output_status"
+                   Text=""
+                   VerticalOptions="Center"
+                   HorizontalOptions="End" />
+        </StackLayout>
+
+        <Label x:Name="output_information"
+               Text="Output"
+               VerticalOptions="Start"
+               HorizontalOptions="Fill" />
+    </StackLayout>
 
 </ContentPage>
+
