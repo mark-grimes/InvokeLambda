@@ -15,21 +15,37 @@
                    VerticalOptions="Center"
                    HorizontalOptions="Start" />
 
+            <Picker x:Name="input_IdentityPoolRegion"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    SelectedIndexChanged="onIdentityPoolRegionChanged">
+                <Picker.Items>
+                    <x:String>ap-northeast-1</x:String>
+                    <x:String>ap-northeast-2</x:String>
+                    <x:String>ap-south-1</x:String>
+                    <x:String>ap-southeast-1</x:String>
+                    <x:String>ap-southeast-2</x:String>
+                    <x:String>eu-central-1</x:String>
+                    <x:String>eu-west-1</x:String>
+                    <x:String>eu-west-2</x:String>
+                    <x:String>us-east-1</x:String>
+                    <x:String>us-east-2</x:String>
+                    <x:String>us-west-1</x:String>
+                    <x:String>us-west-2</x:String>
+                </Picker.Items>
+                <Picker.SelectedIndex>6</Picker.SelectedIndex>
+            </Picker>
+
             <Entry x:Name="input_identityPool"
                    Placeholder = "Identity Pool"
-                   Text = "us-east-1:00000000-0000-0000-0000-000000000000"
+                   Text = "00000000-0000-0000-0000-000000000000"
                    VerticalOptions="Center"
-                   HorizontalOptions="FillAndExpand"/>
-
-            <Button Text="Use"
-                    VerticalOptions="Center"
-                    HorizontalOptions="End"
-                    Clicked="onAcquireIdentity"/>
+                   HorizontalOptions="FillAndExpand"
+                   TextChanged="onIdentityPoolChanged"/>
         </StackLayout>
 
         <Entry x:Name="input_functionName"
                Placeholder = "Function name"
-               Text = "ShiftRota-version"
                VerticalOptions="Start"
                HorizontalOptions="Fill"/>
 
@@ -38,7 +54,7 @@
                 VerticalOptions="Start"
                 HorizontalOptions="Fill"/>
 
-        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Fill">
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
             <Picker x:Name="input_region"
                     VerticalOptions="Center"
                     HorizontalOptions="Start">
@@ -66,7 +82,7 @@
 
             <Label x:Name="output_status"
                    Text=""
-                   VerticalOptions="Center"
+                   VerticalOptions="CenterAndExpand"
                    HorizontalOptions="End" />
         </StackLayout>
 
