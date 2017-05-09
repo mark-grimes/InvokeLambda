@@ -49,7 +49,15 @@ namespace InvokeLambda
 				Xamarin.Forms.Color resultColour = Xamarin.Forms.Color.Red;
 
 				if (response.IsCanceled) { statusText = "Cancelled"; informationalText = ""; resultColour = Xamarin.Forms.Color.Black; }
-				else if (response.IsFaulted) { statusText = "Faulted"; informationalText = response.Exception.Message; }
+				else if (response.IsFaulted)
+				{
+					statusText = "Faulted";
+					informationalText = response.Exception.Message;
+					foreach (var exception in response.Exception.InnerExceptions)
+					{
+						informationalText += "\n" + exception.Message;
+					}
+				}
 				else if (response.IsCompleted)
 				{
 					statusText = "Finished";
