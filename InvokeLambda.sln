@@ -13,6 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvokeLambda.UWP", "InvokeL
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		InvokeLambda\InvokeLambda\InvokeLambda.projitems*{049555d1-0119-4443-9145-f03d73c4b0b5}*SharedItemsImports = 4
 		InvokeLambda\InvokeLambda\InvokeLambda.projitems*{7a5d3c8f-9f29-4598-8563-b89cddcb5106}*SharedItemsImports = 4
 		InvokeLambda\InvokeLambda\InvokeLambda.projitems*{8e3563f3-22f5-424a-b106-6fa48f5ae3f5}*SharedItemsImports = 13
 		InvokeLambda\InvokeLambda\InvokeLambda.projitems*{cca420f6-42bd-4e2d-a976-131346cff564}*SharedItemsImports = 4
