@@ -31,6 +31,12 @@ namespace InvokeLambda
 		public MainPage()
 		{
 			InitializeComponent();
+			// Restore the settings from any previous invocation
+			if (Application.Current.Properties.ContainsKey("AWSUserPoolID")) input_identityPool.Text = Application.Current.Properties["AWSUserPoolID"] as string;
+			if (Application.Current.Properties.ContainsKey("AWSUserPoolRegion")) input_IdentityPoolRegion.SelectedIndex = (int)Application.Current.Properties["AWSUserPoolRegion"];
+			if (Application.Current.Properties.ContainsKey("AWSFunctionRegion")) input_region.SelectedIndex = (int)Application.Current.Properties["AWSFunctionRegion"];
+			if (Application.Current.Properties.ContainsKey("AWSFunctionName")) input_functionName.Text = Application.Current.Properties["AWSFunctionName"] as string;
+			if (Application.Current.Properties.ContainsKey("AWSFunctionPayload")) input_payload.Text = Application.Current.Properties["AWSFunctionPayload"] as string;
 		}
 
 		private void onButtonClicked(object sender, EventArgs e)
@@ -80,6 +86,14 @@ namespace InvokeLambda
 			output_status.Text = "Running...";
 			output_status.TextColor = Xamarin.Forms.Color.Black;
 			output_information.Text = "";
+
+			// Save the settings in case the app is closed. Note that this means settings only persist between
+			// sessions if the "Send" button is pressed. Not sure if this is desired?
+			Application.Current.Properties["AWSUserPoolID"] = input_identityPool.Text;
+			Application.Current.Properties["AWSUserPoolRegion"] = input_IdentityPoolRegion.SelectedIndex;
+			Application.Current.Properties["AWSFunctionRegion"] = input_region.SelectedIndex;
+			Application.Current.Properties["AWSFunctionName"] = input_functionName.Text;
+			Application.Current.Properties["AWSFunctionPayload"] = input_payload.Text;
 		}
 
 		private void onIdentityPoolChanged(object sender, TextChangedEventArgs e)
